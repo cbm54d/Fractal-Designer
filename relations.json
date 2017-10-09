@@ -1,0 +1,19 @@
+initInfo = '{ "numRelations":2, "root_x1":640, "root_y1":0, "root_x2":640, "root_y2":180, "root_r":180, "root_theta":90 }';
+
+topStraight = '{ "numRelations":2, "root_x1":640, "root_y1":0, "root_x2":640, "root_y2":180, "root_r":180, "root_theta":90 }';
+
+bigInitInfo = '{ "numRelations":2, "root_x1":640, "root_y1":280, "root_x2":400, "root_y2":640, "root_r":432.66615305568, "root_theta":123.96006752598 }';
+
+smallInitInfo = '{ "numRelations":2, "root_x1":640, "root_y1":280, "root_x2":520, "root_y2":460, "root_r":216.33307652784, "root_theta":123.96006752598 }';
+
+
+
+relationInfo = '[{"name":"leftBranch", "scale":0.64, "rotate":45, "translate_r":1, "translate_theta":0 },{"name":"rightBranch", "scale":0.70710678118, "rotate":315, "translate_r":1, "translate_theta":0 }]';
+
+halfInvertedK45 = '[{"name":"leftBranch", "scale":0.70710678118, "rotate":225, "translate_r":1.1180339887499, "translate_theta":26.565051177078 },{"name":"rightBranch", "scale":0.70710678118, "rotate":315, "translate_r":0.5, "translate_theta":90 }]';
+
+halfInvertedBinaryTree = '[{"name":"leftBranch", "scale":0.70710678118, "rotate":225, "translate_r":1.5811388300842, "translate_theta":18.434948822922 },{"name":"rightBranch", "scale":0.70710678118, "rotate":315, "translate_r":1, "translate_theta":0 }]';
+
+wonkyBrokenTree = '[{"name":"leftBranch", "scale":0.70710678118, "rotate":45, "translate_r":1.5811388300842, "translate_theta":18.434948822922 },{"name":"rightBranch", "scale":0.70710678118, "rotate":315, "translate_r":1, "translate_theta":0 }]';
+
+binaryTree = '[{"name":"leftBranch", "scale":0.70710678118, "rotate":45, "translate_r":1, "translate_theta":0 },{"name":"rightBranch", "scale":0.70710678118, "rotate":315, "translate_r":1, "translate_theta":0 }]';

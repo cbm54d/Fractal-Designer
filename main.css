@@ -1,0 +1,71 @@
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 800px;
+    height: 800px;
+}
+
+line {
+    z-index: 0;
+    stroke: black;
+}
+
+.sideText {
+	border:0; 
+	color:#f6931f; 
+	font-weight:bold;
+}
+
+.sideInput {
+    height: 400px;
+    z-index: 20;
+    margin: 8px;
+    float: left;
+}
+
+.slider-vertical {
+    height: 300px;
+    margin: 24px;
+    float: left;
+}
+
+#root_r_slider {
+    height: 300px;
+}
+
+#root_a_slider {
+    height: 300px;
+}
+
+#root_x_slider {
+    height: 300px;
+}
+
+#root_y_slider {
+    height: 300px;
+}
+
+#sliderWrapper {
+    height: 600px;
+    width: 1000px;
+    //background-color: blue;
+}
+
+#inputWrapper {
+    z-index: 15;
+    position: relative;
+    top: 24;
+    left: 24;
+    width: 120px;
+    padding: 24px;
+}
+
+#chart {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
