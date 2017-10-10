@@ -15,11 +15,11 @@ line {
 .sideText {
 	color:#f6931f; 
 	font-weight:bold;
-    width: 50px;
-    font-size: 20px;
+    width: 70px;
+    font-size: 16px;
     text-align: center;
     position: absolute;
-    left: 160px;
+    left: 120px;
     z-index: 40;
 }
 
@@ -31,49 +31,49 @@ line {
 }
 
 .slide_module_label {
-    width: 160px;
-    height: 28px;
+    width: 120px;
+    height: 24px;
     //background-color: paleturquoise;
-    font-size: 24px;
+    font-size: 20px;
     padding: 2px;
     float: left;
-    
+    color: darkcyan;
 }
 
 .slide_module {
-    width: 560px;
+    width: 500px;
 }
 
 #root_x_slider, #root_y_slider, #root_r_slider, #root_a_slider {
-    width: 300px;
-    margin: 20px;
+    width: 250px;
+    margin: 15px;
     position: relative;
     top: 8px;
-    left: 210px;
+    left: 200px;
 }
 
 #rel1_s_slider, #rel1_a_slider, #rel1_tr_slider, #rel1_ta_slider {
-    width: 300px;
-    margin: 20px;
+    width: 250px;
+    margin: 15px;
     position: relative;
     top: 8px;
-    left: 210px;
+    left: 200px;
 }
 
 #rel2_s_slider, #rel2_a_slider, #rel2_tr_slider, #rel2_ta_slider {
-    width: 300px;
-    margin: 20px;
+    width: 250px;
+    margin: 15px;
     position: relative;
     top: 8px;
-    left: 210px;
+    left: 200px;
 }
 
 #depth_slider {
-    width: 300px;
-    margin: 20px;
+    width: 250px;
+    margin: 15px;
     position: relative;
     top: 8px;
-    left: 210px;
+    left: 200px;
 }
 
 #sliderWrapper {
@@ -85,10 +85,9 @@ line {
 #inputWrapper {
     z-index: 15;
     position: absolute;
-    top: 640px;
-    left: 24px;
+    top: 580px;
+    left: 32px;
     width: 240px;
-    padding: 24px;
 }
 
 #chart {

@@ -93,14 +93,14 @@ $( function() {
 
 
 
-var root_x = 980;
+var root_x = 900;
 $( function() {
     $( "#root_x_slider" ).slider({
         orientation: "horizontal",
         range: "max",
         min: 0,
         max: 1600,
-        value: 980,
+        value: 900,
         slide: function( event, ui ) {
             $( "#root_x" ).val( ui.value );
             root_x = ui.value;
@@ -124,14 +124,14 @@ $( function() {
 
 
 
-var root_y = 180;
+var root_y = 60;
 $( function() {
     $( "#root_y_slider" ).slider({
         orientation: "horizontal",
         range: "max",
         min: 0,
         max: 720,
-        value: 180,
+        value: 60,
         slide: function( event, ui ) {
             $( "#root_y" ).val( ui.value );
             root_y = ui.value;

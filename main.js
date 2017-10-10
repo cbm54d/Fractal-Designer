@@ -3,7 +3,7 @@ var branches = [];
 
 var depth = 5;
 
-var seed = new Line(980, 180, 180, 90, 0);
+var seed = new Line(900, 60, 180, 90, 0);
 
 var numRelations = 2;   // this will change in later versions
 
