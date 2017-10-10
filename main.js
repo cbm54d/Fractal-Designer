@@ -1,10 +1,9 @@
 // Tree configuration
 var branches = [];
-//var seed = {i: 0, x: 360, y: 0, a: 0, l: 180, d:0}; // a = angle, l = length, d = depth
 
-var maxDepth = 3;
+var depth = 5;
 
-var seed = new Line(360,360, 180, 90, 0);
+var seed = new Line(980, 180, 180, 90, 0);
 
 var numRelations = 2;   // this will change in later versions
 
@@ -14,13 +13,6 @@ var rel2 = new Relation(0.75, 315, 1, 0);
 relations[0] = rel1;
 relations[1] = rel2;
 
-
-/*
-var scaleFactor = 0.75; // each branch in 20% smaller than its parent
-var rAngle = Math.PI/4; // 45Ëš - angles are in radians - (180 deg = PI rad)
-var lAngle = 0 - Math.PI/4; // -45Ëš
-var maxDepth = 10; // number of trunk segments
-*/
 
 function log_branch(b){
     console.log("b.x: " + b.x);
@@ -43,7 +35,7 @@ function branch(b) {
     
     branches.push(b);
     
-    if (b.d == maxDepth-1)
+    if (b.d == depth-1)
 		return;
     
     var end = endPt(b);
@@ -70,22 +62,11 @@ function branch(b) {
     );
     branch(newLine);
     
-    /*for( i = 0; i < numRelations; i++ ) {
-        var start = newStart(b, relations[i]);
-        newLine = new Line(
-            start.x,
-            start.y,
-            b.r * relations[i].scale,
-            (b.a + relations[i].rotate) % 360,
-            b.d + 1
-        );
-        branch(newLine);
-    }*/
 }
 
 function newStart(b, rel) {
     console.log("running newStart");
-    log_relation(rel);
+    //log_relation(rel);
     // Return starting point of new branch
     var x = b.x + (b.r * rel.translate_r) * (Math.cos((b.a + rel.translate_a) * (Math.PI/180)));
     
@@ -126,20 +107,21 @@ function create() {
 		.attr('y1', y1)
 		.attr('x2', x2)
 		.attr('y2', y2)
-		.style('stroke-width', function(d) {return parseInt(maxDepth - d.d) + 'px';})
+		.style('stroke-width', function(d) {return parseInt(depth - d.d) + 'px';})
 }
 
 function update() {
     console.log("running update");
 	branches = [];
 	//seed = {i: 0, x: 420, y: 500, a: 0, l: treeLength, d:0}; // a = angle, l = length, d = depth
-    var seed = new Line(root_x, root_y, root_a, root_r, 0);
+    var seed = new Line(root_x, root_y, root_r, root_a, 0);
     
-    var relations = [];
-    var rel1 = new Relation(0.75, 45, 1, 0);
-    var rel2 = new Relation(0.75, 315, 1, 0);
+    relations = [];
+    var rel1 = new Relation(rel1_s, rel1_a, rel1_tr, rel1_ta);
+    var rel2 = new Relation(rel2_s, rel2_a, rel2_tr, rel2_ta);
     relations[0] = rel1;
     relations[1] = rel2;
+    log_relation(relations[0]);
 
 	branch(seed);
 	d3.select('svg')

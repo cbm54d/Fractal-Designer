@@ -3,8 +3,8 @@ svg {
     top: 0;
     left: 0;
     z-index: 0;
-    width: 800px;
-    height: 800px;
+    width: 2000px;
+    height: 2000px;
 }
 
 line {
@@ -13,9 +13,14 @@ line {
 }
 
 .sideText {
-	border:0; 
 	color:#f6931f; 
 	font-weight:bold;
+    width: 50px;
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    left: 160px;
+    z-index: 40;
 }
 
 .sideInput {
@@ -25,40 +30,64 @@ line {
     float: left;
 }
 
-.slider-vertical {
-    height: 300px;
-    margin: 24px;
+.slide_module_label {
+    width: 160px;
+    height: 28px;
+    //background-color: paleturquoise;
+    font-size: 24px;
+    padding: 2px;
     float: left;
+    
 }
 
-#root_r_slider {
-    height: 300px;
+.slide_module {
+    width: 560px;
 }
 
-#root_a_slider {
-    height: 300px;
+#root_x_slider, #root_y_slider, #root_r_slider, #root_a_slider {
+    width: 300px;
+    margin: 20px;
+    position: relative;
+    top: 8px;
+    left: 210px;
 }
 
-#root_x_slider {
-    height: 300px;
+#rel1_s_slider, #rel1_a_slider, #rel1_tr_slider, #rel1_ta_slider {
+    width: 300px;
+    margin: 20px;
+    position: relative;
+    top: 8px;
+    left: 210px;
 }
 
-#root_y_slider {
-    height: 300px;
+#rel2_s_slider, #rel2_a_slider, #rel2_tr_slider, #rel2_ta_slider {
+    width: 300px;
+    margin: 20px;
+    position: relative;
+    top: 8px;
+    left: 210px;
+}
+
+#depth_slider {
+    width: 300px;
+    margin: 20px;
+    position: relative;
+    top: 8px;
+    left: 210px;
 }
 
 #sliderWrapper {
-    height: 600px;
-    width: 1000px;
+    height: 1200px;
+    width: 1400px;
     //background-color: blue;
 }
 
 #inputWrapper {
     z-index: 15;
-    position: relative;
-    top: 24;
-    left: 24;
-    width: 120px;
+    position: absolute;
+    top: 640px;
+    left: 24px;
+    width: 240px;
     padding: 24px;
 }
 
