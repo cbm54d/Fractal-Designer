@@ -4,7 +4,7 @@ $( function() {
         orientation: "horizontal",
         range: "max",
         min: 0,
-        max: 10,
+        max: 12,
         value: 5,
         slide: function( event, ui ) {
             $( "#depth" ).val( ui.value );
