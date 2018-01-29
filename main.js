@@ -33,8 +33,10 @@ function branch(b) {
     console.log("running branch");
     log_branch(b);
     
+    // Add line defined in previous recursion
     branches.push(b);
     
+    // base case for ending recursion
     if (b.d == depth-1)
 		return;
     
@@ -50,7 +52,7 @@ function branch(b) {
         (b.a + relations[0].rotate) % 360,
         b.d + 1
     );
-    branch(newLine);
+    branch(newLine);    // first recursive call
     
     start = newStart(b, relations[1]);
     newLine = new Line(
@@ -60,7 +62,7 @@ function branch(b) {
         (b.a + relations[1].rotate) % 360,
         b.d + 1
     );
-    branch(newLine);
+    branch(newLine);    // second recursive call
     
 }
 
@@ -107,13 +109,15 @@ function create() {
 		.attr('y1', y1)
 		.attr('x2', x2)
 		.attr('y2', y2)
-		.style('stroke-width', function(d) {return parseInt(depth - d.d) + 'px';})
+		.style('stroke-width', function(d) {return parseInt(depth - d.d) + 'px';})    //****
 }
 
 function update() {
     console.log("running update");
 	branches = [];
 	//seed = {i: 0, x: 420, y: 500, a: 0, l: treeLength, d:0}; // a = angle, l = length, d = depth
+    
+    // The root_ values are global variables from sliders.js
     var seed = new Line(root_x, root_y, root_r, root_a, 0);
     
     relations = [];

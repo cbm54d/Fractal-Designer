@@ -9,7 +9,8 @@ $( function() {
         slide: function( event, ui ) {
             $( "#depth" ).val( ui.value );
             depth = ui.value;
-            create();
+            create();   //***
+            update();   //***
         }
     });
     $("#depth").val( $("#depth_slider").slider("value") );
@@ -20,10 +21,14 @@ $( function() {
         var input_r = $("#depth").val();
         console.log(input_r);
         if( $.isNumeric( input_r ) ){
-            console.log("New value of depth: " + input_r);
-            $("#depth_slider").slider( "option", { value: input_r });
             depth = parseInt(input_r);
-            create;
+            if( depth <= 12 ) {
+                console.log("New value of depth: " + input_r);
+                $("#depth_slider").slider( "option", { value: input_r });
+                depth = parseInt(input_r);
+                create();   //***
+                update();   //***
+            }
         }
     });
 });
