@@ -44,7 +44,7 @@ line {
     width: 500px;
 }
 
-#root_x_slider, #root_y_slider, #root_r_slider, #root_a_slider {
+#root_x_slider, #root_y_slider, #root_r_slider, #root_a_slider, #root_width_slider {
     width: 250px;
     margin: 15px;
     position: relative;
@@ -68,7 +68,7 @@ line {
     left: 200px;
 }
 
-#depth_slider {
+#depth_slider, #width_ratio_slider {
     width: 250px;
     margin: 15px;
     position: relative;
@@ -85,7 +85,7 @@ line {
 #inputWrapper {
     z-index: 15;
     position: absolute;
-    top: 580px;
+    top: 640px;
     left: 32px;
     width: 240px;
 }

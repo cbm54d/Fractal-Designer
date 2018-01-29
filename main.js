@@ -109,7 +109,9 @@ function create() {
 		.attr('y1', y1)
 		.attr('x2', x2)
 		.attr('y2', y2)
-		.style('stroke-width', function(d) {return parseInt(depth - d.d) + 'px';})    //****
+		.style('stroke-width', function(d) {
+            return parseInt((root_width / depth)*(depth - d.d * width_ratio + 1)) + 'px';
+        })
 }
 
 function update() {
@@ -135,7 +137,10 @@ function update() {
 		.attr('x1', x1)
 		.attr('y1', y1)
 		.attr('x2', x2)
-		.attr('y2', y2);
+		.attr('y2', y2)
+        .style('stroke-width', function(d) {
+            return parseInt((root_width / depth)*(depth - d.d * width_ratio + 1)) + 'px';
+        });
 }
 
 create();

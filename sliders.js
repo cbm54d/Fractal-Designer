@@ -160,6 +160,71 @@ $( function() {
 
 
 
+var root_width = 5;
+$( function() {
+    $( "#root_width_slider" ).slider({
+        orientation: "horizontal",
+        range: "max",
+        min: 1,
+        max: 20,
+        value: 5,
+        slide: function( event, ui ) {
+            $( "#root_width" ).val( ui.value );
+            root_width = ui.value;
+            update();
+        }
+    });
+    $("#root_width").val( $("#root_width_slider").slider("value") );
+} );
+
+$( function() {
+    $("#root_width").keyup( function() {
+        var input_width = $("#root_width").val();
+        console.log(input_width);
+        if( $.isNumeric( input_width ) ){
+            console.log("New value of root_width: " + input_width);
+            $("#root_width_slider").slider( "option", { value: input_width });
+            root_width = parseInt(input_width);
+            update();
+        }
+    });
+});
+
+
+
+var width_ratio = 1;
+$( function() {
+    $( "#width_ratio_slider" ).slider({
+        orientation: "horizontal",
+        range: "max",
+        min: 0,
+        max: 1,
+        step: 0.01,
+        value: 1,
+        slide: function( event, ui ) {
+            $( "#width_ratio" ).val( ui.value );
+            width_ratio = ui.value;
+            update();
+        }
+    });
+    $("#width_ratio").val( $("#width_ratio_slider").slider("value") );
+} );
+
+$( function() {
+    $("#width_ratio").keyup( function() {
+        var input_width = $("#width_ratio").val();
+        console.log(input_width);
+        if( $.isNumeric( input_width ) ){
+            console.log("New value of width_ratio: " + input_width);
+            $("#width_ratio_slider").slider( "option", { value: input_width });
+            width_ratio = parseInt(input_width);
+            update();
+        }
+    });
+});
+
+
+
 var rel1_s = 0.75;
 $( function() {
     $( "#rel1_s_slider" ).slider({
@@ -410,3 +475,6 @@ $( function() {
         }
     });
 });
+
+
+

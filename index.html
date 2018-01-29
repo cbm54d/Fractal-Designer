@@ -13,155 +13,6 @@
     <script src="sliders.js"></script>
     
     <script>
-        
-        function setIterateLimit() {
-            
-            iterationLimit = Math.floor(Math.log(maxNumLines) / Math.log(relations.length));
-            
-            console.log("Iteration limit is " + iterationLimit + " iterations.");
-        }
-        
-        function initialize(i_init, i_relation) {
-
-            var info = JSON.parse(i_init);
-            var rels = JSON.parse(i_relation);
-            console.log(info.numRelations);
-            
-            while( relations.length != 0 ) {
-                relations.shift();
-            }
-            for( i = 0; i < info.numRelations; i++ ) {
-                relations[i] = new Relation(
-                    rels[i].scale,
-                    rels[i].rotate,
-                    rels[i].translate_r,
-                    rels[i].translate_a
-                );
-            }
-            
-            while( currentIt.length != 0 ) {
-                currentIt.shift();
-            }
-            currentIt[0] = new Line(
-                info.root_x1,
-                info.root_y1,
-                info.root_x2,
-                info.root_y2,
-                //info.root_r,
-                $('#root_r').val(),
-                info.root_a
-            );
-            
-            $('#root_x').val(info.root_x1);
-            $('#root_y').val(info.root_y1);
-            $('#root_r').val(info.root_r);
-            $('#root_a').val(info.root_a);
-            
-            $('#root_r_slider').attr('value', info.root_r);
-            $('#root_a_slider').val(info.root_a);
-            
-            var fractal = document.getElementById("fractalWrapper");
-            fractal.innerHTML = "<svg id='fractalContainer' width='2000' height='2000'><line id='root_line' x1='" + info.root_x1 + "' y1='" + info.root_y1 + "' x2='" + info.root_x2 + "' y2='" + info.root_y2 + "' stroke='black' stroke-width='2' /></svg>";
-            
-            iterations = 0;
-            
-            setIterateLimit();
-            
-            if( iterations < iterationLimit ){
-                $("#iterateButton").attr("value", "Iterate");
-            }
-            
-        }
-        
-        function generate_branch(rel) {
-                        
-            var new_r = currentIt[0].r * relations[rel].scale;
-            
-            var new_a = (currentIt[0].a + relations[rel].rotate) % 360;
-            
-            var new_x1 = currentIt[0].x1 + (currentIt[0].r * relations[rel].translate_r) * (Math.cos((currentIt[0].a + relations[rel].translate_a) * (Math.PI/180)));
-            
-            var new_y1 = currentIt[0].y1 + currentIt[0].r * relations[rel].translate_r * (Math.sin((currentIt[0].a + relations[rel].translate_a) * (Math.PI/180)));
-            
-            var new_x2 = new_x1 + new_r * (Math.cos(new_a * (Math.PI/180)));
-            
-            var new_y2 = new_y1 + new_r * (Math.sin(new_a * (Math.PI/180)));
-            
-            var new_color = 'black';
-            /*switch(iterations % 6) {
-                case 0:
-                    new_color = 'red';
-                    break;
-                case 1:
-                    new_color = 'orange';
-                    break;
-                case 2:
-                    new_color = 'green';
-                    break;
-                case 3:
-                    new_color = 'darkturquoise';
-                    break;
-                case 4:
-                    new_color = 'blue';
-                    break;
-                case 5:
-                    new_color = 'purple';
-                    break;
-                default:
-                    new_color = 'black';
-                    break;
-            }*/
-            
-            var fractal = document.getElementById('fractalContainer');
-            fractal.innerHTML += "<line x1='" + new_x1 + "' y1='" + new_y1 + "' x2='" + new_x2 + "' y2='" + new_y2 + "' stroke='" + new_color + "' stroke-width='" + 2 + "' />";
-            
-            var newLine = new Line(new_x1, new_y1, new_x2, new_y2, new_r, new_a);
-            
-            if( false ) {
-                console.log(currentIt[0].x1);
-                console.log(currentIt[0].y1);
-                console.log(currentIt[0].x2);
-                console.log(currentIt[0].y2);
-                console.log(currentIt[0].r);
-                console.log(currentIt[0].a);
-
-                console.log(newLine.x1);
-                console.log(newLine.y1);
-                console.log(newLine.x2);
-                console.log(newLine.y2);
-                console.log(newLine.r);
-                console.log(newLine.a);
-            }
-            
-            var junk = currentIt.push(newLine);
-            console.log("length of currentIt = " + currentIt.length);
-        }
-        
-        function iterate() {
-            var button = document.getElementById("iterateButton");
-            if( iterations < iterationLimit ) {
-                console.log("Iterate is running...");
-
-                for( i = 0; i < (relations.length ** iterations); i++ ) {
-                    for( j = 0; j < relations.length; j++ ) {
-                        generate_branch(j);
-                    }
-
-                    var junk = currentIt.shift();
-                    console.log("length of currentIt = " + currentIt.length);   
-                }
-
-                iterations++;
-
-                console.log("COMPLETED ITERATION " + iterations);
-                
-                if( iterations < iterationLimit ) {
-                    button.setAttribute("value", "Iterate");
-                } else {
-                    button.setAttribute("value", "Max iterations reached");
-                }
-            }
-        }
     </script>
 </head>
 
@@ -199,6 +50,14 @@
             </div>
             <input type="text" value="45" id="root_y" class="sideText" />
             <div id="root_y_slider" class="slider"></div>   
+        </div>
+        
+        <div class="slide_module">
+            <div class="slide_module_label">
+                Root Width:
+            </div>
+            <input type="text" value="5" id="root_width" class="sideText" />
+            <div id="root_width_slider" class="slider"></div>   
         </div>
         <br>
         
@@ -276,6 +135,14 @@
             </div>
             <input type="text" value="5" id="depth" class="sideText" />
             <div id="depth_slider" class="slider"></div>   
+        </div>
+        
+        <div class="slide_module">
+            <div class="slide_module_label">
+                Width Ratio:
+            </div>
+            <input type="text" value="1" id="width_ratio" class="sideText" />
+            <div id="width_ratio_slider" class="slider"></div>   
         </div>
     </div>
 
